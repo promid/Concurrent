@@ -42,7 +42,7 @@ class Business {
     public /*synchronized*/ void main(int loop) throws InterruptedException {
         lock.lock();
         try {
-            if (bool) {
+            while (bool) {
                 condition.await();//this.wait();
             }
             for (int i = 0; i < 5; i++) {
@@ -58,7 +58,7 @@ class Business {
     public /*synchronized*/ void sub(int loop) throws InterruptedException {
         lock.lock();
         try {
-            if (!bool) {
+            while (!bool) {
                 condition.await();//this.wait();
             }
             for (int i = 0; i < 5; i++) {
