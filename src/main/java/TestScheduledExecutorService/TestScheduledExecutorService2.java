@@ -22,9 +22,10 @@ public class TestScheduledExecutorService2 {
         final ScheduledFuture beeperHandle2 = scheduler.scheduleWithFixedDelay(beeper, 2, 5, SECONDS);
         // 30秒后结束关闭任务，并且关闭Scheduler
         scheduler.schedule(() -> {
-            beeperHandle.cancel(true);
-            beeperHandle2.cancel(true);
+            //beeperHandle.cancel(true);
+            //beeperHandle2.cancel(true);
             scheduler.shutdown();
+            System.out.println("shutdown");
         }, 30, SECONDS);
         System.out.println("这个方法阻塞吗?");
     }
